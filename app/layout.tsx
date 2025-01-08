@@ -49,7 +49,7 @@ export default function RootLayout({
         </header>
 
 
-        <main className="w-full h-full">
+        <main className="w-full px-12 py-6 h-full">
             {children}
         </main>
       </body>
