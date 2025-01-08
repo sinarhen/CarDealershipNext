@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
-import "../globals.css";
-import { Navbar } from "@/app/(root)/components/navbar";
+import "./globals.css";
+import { Navbar } from "@/app/(landing)/components/navbar";
 
 const roboto = Manrope({
   weight: "400",
@@ -29,5 +29,3 @@ export default function RootLayout({
     </html>
   );
 }
-
-const paddings = "max-w-screen-2xl px-12 sm:px-16 md:px-24 lg:px-44 py-12  ";

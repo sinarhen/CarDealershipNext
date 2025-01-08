@@ -11,7 +11,7 @@ export const Navbar = () => {
           size="sm"
           variant="ghost"
         >
-          <Link href="/src/public">
+          <Link href="/">
             <Home size="20" />
           </Link>
         </Button>
