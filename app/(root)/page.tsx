@@ -1,24 +1,84 @@
+import { Separator } from "@/components/ui/separator";
 import { carsEndpoint } from "@/lib/constants";
-import {Separator} from "@/components/ui/separator";
-import FindCarForm from "@/app/(root)/components/find-car-form";
-import {VehicleListResponse} from "@/lib/types";
+import { VehicleListResponse } from "@/lib/types";
+import FindCarForm from "./components/find-car-form";
+import { Star } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
 
 export default async function Home() {
-    const data: VehicleListResponse = await fetch(carsEndpoint).then((res) => res.json());
+  const data: VehicleListResponse = await fetch(carsEndpoint).then((res) =>
+    res.json()
+  );
 
-    return (
-        <section className=" relative  justify-center w-full">
-            <h1 className="text-2xl">
-                This is the home page
-            </h1>
+  return (
+    <div className="flex flex-col gap-y-32">
+      <section className="h-auto bg-black/85 hover:bg-black/60 transition-colors duration-1000 flex relative w-full">
+        <video
+          className="absolute h-full w-full -z-10 object-cover"
+          autoPlay
+          loop
+        >
+          <source src="/video_banner.mp4" type="video/mp4" />
+        </video>
+        <div className="max-w-screen-2xl flex md:justify-between gap-x-12 flex-col md:flex-row  px-12 sm:px-16 md:px-24 lg:px-44  py-36 xl:py-44  text-white w-full">
+          <div className="w-full">
+            <h1 className="text-3xl">Find your dream car</h1>
+            <p className="mt-1">
+              With our wide range of cars, you can find the perfect car for you.
+              We have a wide range of cars from different manufacturers and
+              years. You can find your{" "}
+              <span className="underline font-medium">dream</span> car with us.
+            </p>
+          </div>
 
-            {/*<div className="bg-white w-[350px] rounded px-4 py-6">*/}
-            {/*    <h1 className="text-2xl">Buy a car</h1>*/}
-            {/*    <p className="text-sm">Please choose make and year</p>*/}
-            {/*    <Separator className="mt-2 mb-4"/>*/}
-            {/*    <FindCarForm data={data} />*/}
-            {/*</div>*/}
-        </section>
+          <div className="w-full">
+            <Separator className="mt-2 mb-4 md:hidden" />
+            <FindCarForm data={data} />
+          </div>
+        </div>
+        {/* <div className="bg-white  w-full rounded px-4 py-6">
+        <h1 className="text-2xl">Buy a car</h1>
+        <p className="text-sm">Please choose make and year</p>
 
-    );
+      </div> */}
+      </section>
+      <section className="max-w-screen-2xl gap-x-12 flex-col md:flex-row  px-12 sm:px-16 md:px-24 lg:px-44   w-full">
+        <h1 className="text-2xl">Why us?</h1>
+        <p>
+          We are the best car dealer in the world
+          <br /> These are the reasons why you should choose us
+        </p>
+        <div className="grid mt-4 gap-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          {Array.from({ length: 4 }).map((_, index) => (
+            <div className="bg-white h-[200px] flex items-center justify-center flex-col w-full rounded border p-5">
+              <div className="flex gap-x-1">
+                <Star size="30" strokeWidth={1} />
+                <Star size="30" className="-translate-y-3" strokeWidth={1} />
+                <Star size="30" strokeWidth={1} />
+              </div>
+              <h1 className="text-center mt-2">Quality</h1>
+              <p className="text-center text-sm">
+                Our cars are of the highest quality. We make sure that all our
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+      <section className="bg-black text-white flex flex-col items-center py-24 w-full h-full">
+        <h1 className="text-2xl">Contact Us</h1>
+        <form>
+          <Label>Email</Label>
+          <Input id="email-contact" name="email" />
+
+          <Label>Description</Label>
+          <Textarea />
+
+          <Button className="w-full mt-3">Send</Button>
+        </form>
+      </section>
+    </div>
+  );
 }
