@@ -1,6 +1,4 @@
-import {carsEndpoint} from "@/lib/constants";
-import {getYearsRangingFrom} from "@/lib/utils";
-import {VehicleDetailsResponse, VehicleListResponse} from "@/lib/types";
+import {VehicleDetailsResponse} from "@/lib/types";
 import {Separator} from "@/components/ui/separator";
 import {Button} from "@/components/ui/button";
 import {Info} from "lucide-react";
