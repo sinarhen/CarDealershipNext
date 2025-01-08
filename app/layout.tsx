@@ -12,6 +12,7 @@ import {
     Sansita
 } from "next/font/google";
 import "./globals.css";
+import {Home} from "lucide-react";
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -41,12 +42,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${roboto.className} antialiased`}
+        className={`${roboto.className} h-full w-full antialiased`}
       >
-        <header className="h-16 py-2 px-20 flex items-center  text-white bg-black">
-
+        <header className="bg-gray-100 py-4">
+            <Home className="right-0  left-0 m-auto"/>
         </header>
-        <main className=" px-6">
+
+
+        <main className="w-full h-full">
             {children}
         </main>
       </body>
