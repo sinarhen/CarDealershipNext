@@ -5,9 +5,10 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import Link from "next/link";
 import { getYearsRangingFrom } from "@/lib/utils";
+import {VehicleListResponse} from "@/lib/types";
 
 interface Props {
-    data: ApiResponse;
+    data: VehicleListResponse;
 }
 
 export default function FindCarForm({ data }: Props) {
