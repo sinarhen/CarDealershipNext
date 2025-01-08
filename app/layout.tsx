@@ -12,8 +12,9 @@ import {
     Sansita
 } from "next/font/google";
 import "./globals.css";
-import {Home} from "lucide-react";
+import {Car, CarFront, DollarSign, Home, Settings, User} from "lucide-react";
 import Link from "next/link";
+import {Button} from "@/components/ui/button";
 
 
 
@@ -36,20 +37,39 @@ export default function RootLayout({
       <body
         className={`${roboto.className} h-full w-full antialiased`}
       >
-        <header className=" flex justify-center bg-gray-100 py-4">
-            <Link className="w-fit" href="/">
-                <Home className="right-0  left-0 m-auto">
+      <header className="flex justify-between px-12 bg-black text-white py-4">
+          <div className="flex items-center gap-x-3">
+              <Button size="sm" variant="ghost">
+                  <Link href="/">
+                      <Home size="20"/>
+                  </Link>
+              </Button>
+              <Button size="sm" variant="ghost">
+                      <CarFront size="20"/>
+              </Button>
+              <Button size="sm" variant="ghost">
+                      <DollarSign size="20"/>
+              </Button>
+          </div>
 
-                </Home>
+          <div className="flex items-center ">
+              <Button size="sm" variant="ghost">
 
-            </Link>
+                  <Settings className="w-fit" href="/sales">
+                  </Settings>
+              </Button>
+              <Button size="sm" variant="ghost">
+                  <Link className="w-fit" href="/sales">
+                      <User size="20"/>
+                  </Link>
+              </Button>
+          </div>
+      </header>
 
-        </header>
 
-
-        <main className="w-full px-12 py-6 h-full">
-            {children}
-        </main>
+      <main className="w-full px-12 py-6 h-full">
+        {children}
+      </main>
       </body>
     </html>
   );
