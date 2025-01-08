@@ -13,16 +13,8 @@ import {
 } from "next/font/google";
 import "./globals.css";
 import {Home} from "lucide-react";
+import Link from "next/link";
 
-// const geistSans = Geist({
-//   variable: "--font-geist-sans",
-//   subsets: ["latin"],
-// });
-//
-// const geistMono = Geist_Mono({
-//   variable: "--font-geist-mono",
-//   subsets: ["latin"],
-// });
 
 
 const roboto = Manrope({
@@ -44,8 +36,14 @@ export default function RootLayout({
       <body
         className={`${roboto.className} h-full w-full antialiased`}
       >
-        <header className="bg-gray-100 py-4">
-            <Home className="right-0  left-0 m-auto"/>
+        <header className=" flex justify-center bg-gray-100 py-4">
+            <Link className="w-fit" href="/">
+                <Home className="right-0  left-0 m-auto">
+
+                </Home>
+
+            </Link>
+
         </header>
 
 
